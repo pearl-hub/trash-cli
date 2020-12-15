@@ -7,7 +7,7 @@ function post_install(){
     install_or_update_git_repo $giturl "$location" master
 
     cd "$location"
-    pip3 install --user .
+    pip3 install .
 
     link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash
     link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash-list
