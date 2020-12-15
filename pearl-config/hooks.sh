@@ -9,6 +9,13 @@ function post_install(){
     cd "$location"
     pip3 install --user .
 
+    link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash
+    link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash-list
+    link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash-empty
+    link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash-put
+    link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash-restore
+    link_to_path ${PEARL_PKGVARDIR}/trash-cli/trash-rm
+
     return 0
 }
 
@@ -17,5 +24,14 @@ function post_update(){
 }
 
 function pre_remove(){
+    unlink_from_path ${PEARL_PKGVARDIR}/trash-cli/trash
+    unlink_from_path ${PEARL_PKGVARDIR}/trash-cli/trash-list
+    unlink_from_path ${PEARL_PKGVARDIR}/trash-cli/trash-empty
+    unlink_from_path ${PEARL_PKGVARDIR}/trash-cli/trash-put
+    unlink_from_path ${PEARL_PKGVARDIR}/trash-cli/trash-restore
+    unlink_from_path ${PEARL_PKGVARDIR}/trash-cli/trash-rm
+
     rm -rf "${PEARL_PKGVARDIR}/trash-cli"
+
+    return 0
 }
