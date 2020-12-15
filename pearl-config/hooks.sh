@@ -7,7 +7,7 @@ function post_install(){
     install_or_update_git_repo $giturl "$location" master
 
     cd "$location"
-    pip install .
+    pip3 install --user .
 
     return 0
 }
